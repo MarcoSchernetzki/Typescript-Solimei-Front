@@ -2,7 +2,6 @@ import { SyntheticEvent, useState } from 'react';
 import { useUsers } from '../../users/hook/use.users';
 import { ProtoUserI } from '../../users/model/user';
 import './login.form.css';
-import '../../pages/homePage/home.page.css';
 
 export function LoginForm() {
     const { handleLogin } = useUsers();

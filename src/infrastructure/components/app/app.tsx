@@ -1,10 +1,13 @@
 import { Layout } from '../layout/layout';
 import { AppRoutes } from '../routes/routes';
+import './app.css';
 
-export function App() {
+export const App = () => {
     return (
         <Layout>
-            <AppRoutes />
+            <main>
+                <AppRoutes />
+            </main>
         </Layout>
     );
-}
+};

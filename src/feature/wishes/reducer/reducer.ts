@@ -1,10 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { WishI } from '../model/wish';
 import * as ac from './action.creator';
+import { House } from '../model/house';
 
 const initialState: {
-    wishes: Array<WishI>;
-    selectedWish: WishI | null;
+    wishes: Array<House>;
+    selectedWish: House | null;
 } = {
     wishes: [],
     selectedWish: null,
@@ -41,7 +41,7 @@ export const wishReducer = createReducer(initialState, (builder) => {
     builder.addCase(ac.comeTrueActionCreator, (state, action) => ({
         ...state,
         selectedWish: {
-            ...(state.selectedWish as WishI),
+            ...(state.selectedWish as House),
             comeTrue: action.payload,
         },
     }));

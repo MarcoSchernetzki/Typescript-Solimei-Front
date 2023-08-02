@@ -1,5 +1,5 @@
+import { House } from '../model/house';
 import { RepoWish } from './repository';
-import { WishI } from './../model/wish';
 
 export class WishRepository implements RepoWish {
     url: string;
@@ -14,21 +14,21 @@ export class WishRepository implements RepoWish {
         return error;
     }
 
-    async getWish(id: string): Promise<WishI> {
+    async getWish(id: string): Promise<House> {
         return fetch(`${this.url}/${id}`)
             .then((response) => response.json())
             .catch((error) => {
                 return `${error}`;
             });
     }
-    async getAllWishes(): Promise<{ wishes: WishI[] }> {
+    async getAllWishes(): Promise<{ wishes: House[] }> {
         return fetch(`${this.url}`)
             .then((response) => response.json())
             .catch((error) => {
                 return `${error}`;
             });
     }
-    async findInspo(): Promise<WishI[]> {
+    async findInspo(): Promise<House[]> {
         return fetch(`${this.url}/find/:inspiration/:true`, {
             method: 'GET',
         })
@@ -39,9 +39,9 @@ export class WishRepository implements RepoWish {
     }
 
     async create(
-        wish: Partial<WishI>,
+        wish: Partial<House>,
         token: string
-    ): Promise<{ wishes: WishI }> {
+    ): Promise<{ wishes: House }> {
         return fetch(this.url, {
             method: 'POST',
             body: JSON.stringify(wish),
@@ -58,9 +58,9 @@ export class WishRepository implements RepoWish {
 
     async update(
         id: string,
-        partialWish: Partial<WishI>,
+        partialWish: Partial<House>,
         token: string
-    ): Promise<WishI> {
+    ): Promise<House> {
         return fetch(`${this.url}/${id}`, {
             method: 'PATCH',
             body: JSON.stringify(partialWish),

@@ -1,13 +1,13 @@
-import { WishI } from '../model/wish';
+import { House } from '../model/house';
 
 export interface RepoWish {
-    getWish: (id: string) => Promise<WishI>;
-    findInspo: () => Promise<WishI[]>;
-    create: (wish: Partial<WishI>, token: string) => Promise<{ wishes: WishI }>;
+    getWish: (id: string) => Promise<House>;
+    findInspo: () => Promise<House[]>;
+    create: (wish: Partial<House>, token: string) => Promise<{ wishes: House }>;
     update: (
         id: string,
-        partialWish: Partial<WishI>,
+        partialWish: Partial<House>,
         token: string
-    ) => Promise<WishI>;
+    ) => Promise<House>;
     delete: (id: string, token: string) => Promise<string>;
 }

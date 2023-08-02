@@ -9,11 +9,9 @@ export function UpdateForm() {
     const { users } = useUsers();
     const { wishes, handleUpdate } = useWishes();
     const [updateFormState, setUpdateFormState] = useState({
-        name: wishes.selectedWish?.name,
+        name: wishes.selectedWish?.street,
         image: wishes.selectedWish?.image,
-        origin: wishes.selectedWish?.origin,
         price: wishes.selectedWish?.price,
-        comments: wishes.selectedWish?.comments,
     });
 
     const handleInput = (ev: SyntheticEvent) => {
@@ -56,24 +54,8 @@ export function UpdateForm() {
                 <label>
                     <input
                         type="text"
-                        name="origin"
-                        value={updateFormState.origin}
-                        onInput={handleInput}
-                    />
-                </label>
-                <label>
-                    <input
-                        type="text"
                         name="price"
                         value={updateFormState.price}
-                        onInput={handleInput}
-                    />
-                </label>
-                <label>
-                    <input
-                        type="text"
-                        name="comments"
-                        value={updateFormState.comments}
                         onInput={handleInput}
                     />
                 </label>

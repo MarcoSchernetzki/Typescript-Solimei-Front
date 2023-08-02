@@ -5,6 +5,38 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-    background-color: black;
+    background-color: #d3c6b2c9;
+    @media (min-width: 600px) {
+        flex-direction: row;
+    }
 }
+
+.social__icon {
+    display: flex;
+    background: #e0d8cc94;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: all .4s ease-in-out;
+    cursor: pointer;
+}
+
+.social__icon:hover {
+    transform: scale(1.2);
+}
+
+.footer_container {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 0.5px solid #000;
+    padding-top: 5px;
+    max-width: 300px;
+    @media (min-width: 600px) {
+        border-top: none;
+        border-left: 0.5px solid #000;
+        padding: 0;
+        margin-left: 15px;
+    }
+}
+

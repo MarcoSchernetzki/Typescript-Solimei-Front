@@ -1,7 +1,6 @@
 import { SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserRepository } from '../../users/service/user.repository';
-import '../../pages/homePage/home.page.css';
 
 export function RegisterForm() {
     const navigate = useNavigate();

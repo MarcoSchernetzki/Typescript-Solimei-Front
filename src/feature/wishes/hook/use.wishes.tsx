@@ -4,13 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { rootState } from '../../../infrastructure/store/store';
 import { WishRepository } from '../service/wish.repository';
 import * as ac from '../reducer/action.creator';
-import { WishI } from '../model/wish';
-import {
-    addWishActionUser,
-    updateWishActionUser,
-    deleteWishActionUser,
-} from '../../users/reducer/action.creators';
 import { useNavigate } from 'react-router-dom';
+import { House } from '../model/house';
 
 export const useWishes = () => {
     const navigate = useNavigate();
@@ -31,12 +26,11 @@ export const useWishes = () => {
         [apiWish, dispatcher]
     );
 
-    const handleAdd = (newWish: WishI, token: string) => {
+    const handleAdd = (newWish: House, token: string) => {
         apiWish
             .create(newWish, token)
             .then((wish) => {
                 dispatcher(ac.addActionCreator(wish.wishes));
-                dispatcher(addWishActionUser(wish.wishes));
                 navigate('/home');
             })
             .catch((error: Error) => console.log(error.name, error.message));
@@ -44,14 +38,13 @@ export const useWishes = () => {
 
     const handleUpdate = (
         id: string,
-        updateWish: Partial<WishI>,
+        updateWish: Partial<House>,
         token: string
     ) => {
         apiWish
             .update(id, updateWish, token)
-            .then((wish: WishI) => {
+            .then((wish: House) => {
                 dispatcher(ac.updateActionCreator(wish));
-                dispatcher(updateWishActionUser(wish));
                 navigate('/home');
             })
             .catch((error: Error) => console.log(error.name, error.message));
@@ -62,13 +55,12 @@ export const useWishes = () => {
             .delete(id, token)
             .then((dataId) => {
                 dispatcher(ac.deleteActionCreator(dataId));
-                dispatcher(deleteWishActionUser(dataId));
                 navigate('/home');
             })
             .catch((error: Error) => console.log(error.name, error.message));
     };
 
-    const handleSelect = (wish: WishI) => {
+    const handleSelect = (wish: House) => {
         apiWish
             .getWish(wish.id)
             .then(() => {

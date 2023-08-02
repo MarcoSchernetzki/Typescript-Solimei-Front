@@ -1,0 +1,54 @@
+.container-menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    height: 100vh;
+    z-index: 1;
+    color: white;
+    background-color: #000000e3;
+    transition: all .4s ease-in-out;
+}
+.open {
+    width: 200px;
+}
+
+.close {
+    width: 0;
+    overflow: hidden;
+}
+.menu-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 67px;
+    border-top: 1px solid #fff;
+    width: 100%;
+}
+.menu-ul :first-child {
+    margin-top: 60px;
+}
+.menu-ul
+.menu-li {
+    list-style: none;
+    cursor: pointer;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    overflow: hidden;
+    transition: all .4s ease-in-out;
+}
+.menu-li:hover {
+    background-color: #000000;
+    font-size: 18px;
+}
+.menu-li :only-child {
+    margin-top: 0;
+}
+.menu-li p{
+    overflow: hidden;
+    height: 24px;
+}

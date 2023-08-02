@@ -1,9 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useUsers } from '../../users/hook/use.users';
 import { useWishes } from '../../wishes/hook/use.wishes';
-import Swal from 'sweetalert2';
 import './details.page.css';
-import '../homePage/home.page.css';
 
 function DetailsPage() {
     const navigate = useNavigate();
@@ -12,16 +10,11 @@ function DetailsPage() {
     const { wishes, handleDelete } = useWishes();
 
     const handleBuy = () => {
-        Swal.fire(
-            `Ey ${users.user?.name}!`,
-            'Gracias por tu compra',
-            'success'
-        );
         navigate('/home');
     };
 
     if (!wishes.selectedWish) return <p>loading...</p>;
-    if (wishes.selectedWish.inspiration)
+    if (wishes.selectedWish.street)
         return (
             <>
                 <main>
@@ -48,11 +41,11 @@ function DetailsPage() {
                         </button>
                         <img
                             src={wishes.selectedWish?.image}
-                            alt={wishes.selectedWish?.name}
+                            alt={wishes.selectedWish?.street}
                             width="320px"
                         ></img>
-                        <div>{wishes.selectedWish?.name}</div>
-                        <div>{wishes.selectedWish?.comments}</div>
+                        <div>{wishes.selectedWish?.street}</div>
+                        <div>{wishes.selectedWish?.description}</div>
                         <div>{wishes.selectedWish?.price}€</div>
                     </div>
                 </main>
@@ -74,11 +67,11 @@ function DetailsPage() {
                     </button>
                     <img
                         src={wishes.selectedWish?.image}
-                        alt={wishes.selectedWish?.name}
+                        alt={wishes.selectedWish?.street}
                         width="320px"
                     ></img>
-                    <div>{wishes.selectedWish?.name}</div>
-                    <div>{wishes.selectedWish?.comments}</div>
+                    <div>{wishes.selectedWish?.street}</div>
+                    <div>{wishes.selectedWish?.description}</div>
                     <div>{wishes.selectedWish?.price}€</div>
                     <div></div>
                     <button

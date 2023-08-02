@@ -1,5 +1,3 @@
-import { WishI } from '../../wishes/model/wish';
-
 export type Role = 'user' | 'admin';
 
 export type UserI = {
@@ -8,7 +6,6 @@ export type UserI = {
     email: string;
     passwd: string;
     role: Role;
-    myWishes: WishI[];
 };
 
 export type ProtoUserI = {
@@ -16,7 +13,6 @@ export type ProtoUserI = {
     email: string;
     passwd: string;
     role: Role;
-    myWishes: WishI[];
 };
 
 export type UserToken = {

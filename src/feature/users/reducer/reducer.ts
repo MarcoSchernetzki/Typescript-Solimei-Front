@@ -28,33 +28,5 @@ export const userReducer = createReducer(initialState, (builder) => {
         user: action.payload,
     }));
 
-    builder.addCase(ac.addWishActionUser, (state, action) => ({
-        ...state,
-        user: {
-            ...state.user,
-            myWishes: [...(state.user as UserI).myWishes, action.payload],
-        } as UserI,
-    }));
-
-    builder.addCase(ac.updateWishActionUser, (state, action) => ({
-        ...state,
-        user: {
-            ...state.user,
-            myWishes: [...(state.user as UserI).myWishes].map((item) =>
-                item.id === action.payload.id ? action.payload : item
-            ),
-        } as UserI,
-    }));
-
-    builder.addCase(ac.deleteWishActionUser, (state, action) => ({
-        ...state,
-        user: {
-            ...state.user,
-            myWishes: state.user?.myWishes.filter(
-                (item) => item.id !== action.payload
-            ),
-        } as UserI,
-    }));
-
     builder.addDefaultCase((state) => state);
 });

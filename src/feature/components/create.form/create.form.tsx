@@ -2,8 +2,7 @@ import { SyntheticEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUsers } from '../../users/hook/use.users';
 import { useWishes } from '../../wishes/hook/use.wishes';
-import { WishI } from '../../wishes/model/wish';
-import '../../pages/homePage/home.page.css';
+import { House } from '../../wishes/model/house';
 
 export function CreateForm() {
     const navigate = useNavigate();
@@ -11,11 +10,15 @@ export function CreateForm() {
     const { users } = useUsers();
     const { handleAdd } = useWishes();
     const [addFormState, setAddFormState] = useState({
-        name: '',
+        street: '',
         image: '',
-        origin: '',
-        price: '',
-        comments: '',
+        price: 0,
+        zone: '',
+        location: '',
+        description: '',
+        isAvailable: true,
+        environments: '',
+        propertyType: '',
     });
 
     const handleInput = (ev: SyntheticEvent) => {
@@ -28,7 +31,7 @@ export function CreateForm() {
 
     const handleAddSubmit = (ev: SyntheticEvent) => {
         ev.preventDefault();
-        handleAdd(addFormState as WishI, users.token as string);
+        handleAdd(addFormState as House, users.token as string);
     };
 
     return (

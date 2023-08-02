@@ -1,26 +1,44 @@
-import { useNavigate } from 'react-router-dom';
-import { useUsers } from '../../../feature/users/hook/use.users';
+import { Link } from 'react-router-dom';
 import './header.css';
+import { useState } from 'react';
+import { SectionMenu } from './sectionMenu/sectionMenu';
+import { menuRoutes } from '../../constants/menuRoutes/menuRoutes';
 
-export function Header() {
-    const navigate = useNavigate();
-    const { users, handleLogout } = useUsers();
-    if (!users.user) return <p></p>;
+export const Header = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const handleClick = () => setIsOpen(!isOpen);
     return (
-        <header>
-            <div className="div">
-                <h2>Cuenta de {users.user.name}</h2>
-                <button
-                    className="button"
-                    onClick={(e) => {
-                        e.preventDefault();
-                        handleLogout();
-                        navigate('/login');
-                    }}
-                >
-                    Salir
-                </button>
+        <header className="container-header">
+            <div className="header-bar">
+                <img
+                    className={`bar-icon-menu ${
+                        isOpen ? 'open-menu' : 'close-menu'
+                    }`}
+                    src="../../../../assets/menu-burguer.svg"
+                    alt="menu"
+                    width="30px"
+                    onClick={handleClick}
+                />
+                <img
+                    src="../../../../assets/icon-close.svg"
+                    alt="cerrar"
+                    width="25px"
+                    className={`bar-icon-close ${isOpen && 'iconClose'}`}
+                    onClick={handleClick}
+                />
+                <Link to={'./'}>
+                    <img
+                        src="../../../../assets/logo-andry-gota.svg"
+                        alt="Andry Morales logo"
+                        width="40px"
+                    />
+                </Link>
+            </div>
+            <div className={`container-menu ${isOpen ? 'open' : 'close'}`}>
+                {isOpen && (
+                    <SectionMenu sections={menuRoutes} setIsOpen={setIsOpen} />
+                )}
             </div>
         </header>
     );
-}
+};
