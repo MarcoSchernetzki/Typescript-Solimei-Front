@@ -4,7 +4,7 @@ export const data: Array<House> = [
     {
         id: '1',
         street: 'laprida 42',
-        image: './assets/laminado-de-cejas-mas-tinte.jpg',
+        image: './assets/casas/laminado-de-cejas-mas-tinte.jpg',
         price: 42,
         zone: 'Gba Oeste',
         location: 'Ituzaingo Norte',
@@ -17,7 +17,7 @@ export const data: Array<House> = [
     {
         id: '2',
         street: 'Pestañas volumen medio',
-        image: './assets/pestañas-volumen-medio-1.jpg',
+        image: './assets/casas/pestañas-volumen-medio-1.jpg',
         price: 70,
         zone: 'Buenos Aires',
         location: 'Castelar Norte',
@@ -30,7 +30,7 @@ export const data: Array<House> = [
     {
         id: '3',
         street: 'Pestañas volumen light',
-        image: './assets/pestañas-volumen-light1.jpg',
+        image: './assets/casas/pestañas-volumen-light1.jpg',
         price: 55,
         zone: 'Gba Oeste',
         location: 'Castelar Sur',
@@ -43,7 +43,7 @@ export const data: Array<House> = [
     {
         id: '4',
         street: 'Lifting de pestañas + Tinte',
-        image: './assets/lifting-pestañas-mas-tinte-1.jpg',
+        image: './assets/casas/lifting-pestañas-mas-tinte-1.jpg',
         price: 40,
         zone: 'Gba Oeste',
         location: 'Hurlingham',
@@ -56,7 +56,7 @@ export const data: Array<House> = [
     {
         id: '5',
         street: 'laminado de cejas + diseño',
-        image: './assets/laminado-de-cejas-mas-diseño.jpg',
+        image: './assets/casas/laminado-de-cejas-mas-diseño.jpg',
         price: 38,
         zone: 'Gba Norte',
         location: 'Merlo Norte',
@@ -69,7 +69,7 @@ export const data: Array<House> = [
     {
         id: '6',
         street: 'diseño de cejas',
-        image: './assets/diseño-de-cejas-1.JPG',
+        image: './assets/casas/diseño-de-cejas-1.JPG',
         price: 12,
         zone: 'Gba Oeste',
         location: 'Moron Sur',

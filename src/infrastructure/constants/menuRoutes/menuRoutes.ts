@@ -4,12 +4,8 @@ export const menuRoutes = [
         path: '/home',
     },
     {
-        text: 'Servicios',
-        path: '/services',
-    },
-    {
-        text: 'Tarjeta Regalo',
-        path: '/gift-card',
+        text: 'Propiedades',
+        path: '/propiedades',
     },
     {
         text: 'Quienes somos',

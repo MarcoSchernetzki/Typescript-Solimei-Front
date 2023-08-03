@@ -1,0 +1,39 @@
+.container-services-list {
+    display: flex;
+    flex-direction: column;
+}
+.services-list {
+    display: flex;
+    grid-gap: 20px;
+    padding-inline: 24px;
+    width: 100vw;
+    overflow: hidden;
+    margin-bottom: 12px ;
+}
+.services-list-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+.tittle-items {
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0;
+    padding-inline: 24px;
+}
+.service-subtitle {
+    color: #757575;
+    margin: 0;
+    line-height: 120%;
+    padding-inline: 24px;
+}
+
+@media (min-width: 700px) {
+    
+
+}
+@media (min-width: 1000px) {
+   
+
+}
