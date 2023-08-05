@@ -1,14 +1,18 @@
+import { useLocation } from 'react-router-dom';
 import CreateForm from '../../components/create.form/create.form';
 
 function CreatePage() {
+    const location = useLocation();
     return (
         <>
-            <main>
-                <h2>Añade un deseo</h2>
-                <div>
-                    <CreateForm />
-                </div>
-            </main>
+            <h1>
+                {location.state === 'Añadir'
+                    ? 'Añade una Propiedad'
+                    : 'Modifica una Propiedad'}
+            </h1>
+            <div>
+                <CreateForm />
+            </div>
         </>
     );
 }

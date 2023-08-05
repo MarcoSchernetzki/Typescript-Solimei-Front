@@ -14,7 +14,7 @@ export type House = {
 export type ProtoHouse = {
     id: string;
     street?: string;
-    image?: string;
+    image?: Array<string>;
     price?: number;
     zone?: Zone;
     location?: Location;

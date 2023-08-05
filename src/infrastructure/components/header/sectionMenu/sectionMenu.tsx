@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { NavigateOptions, useNavigate } from 'react-router-dom';
 import { menuRoutesI } from '../../../constants/menuRoutes/menuRoutes';
 import './sectionMenu.css';
 
@@ -10,8 +10,8 @@ export const SectionMenu = ({
     setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
     const navigate = useNavigate();
-    const handleClick = (path: string) => {
-        navigate(path);
+    const handleClick = (path: string, state: NavigateOptions) => {
+        navigate(path, state);
         setIsOpen(false);
     };
     return (
@@ -22,7 +22,9 @@ export const SectionMenu = ({
                         <li
                             className="menu-li"
                             key={item.text}
-                            onClick={() => handleClick(item.path)}
+                            onClick={() =>
+                                handleClick(item.path, { state: item.text })
+                            }
                         >
                             <p>{item.text}</p>
                         </li>

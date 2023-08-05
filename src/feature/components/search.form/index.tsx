@@ -1,12 +1,17 @@
 import './style.css';
 import { SyntheticEvent, useState } from 'react';
-import { useWishes } from '../../wishes/hook/use.wishes';
+import { useHouse } from '../../wishes/hook/use.wishes';
 import { useUsers } from '../../users/hook/use.users';
 import { House } from '../../wishes/model/house';
+import {
+    locations,
+    propertyTypes,
+    zones,
+} from '../../../infrastructure/data/data';
 
 export const SearchForm = () => {
     const { users } = useUsers();
-    const { handleAdd } = useWishes();
+    const { handleAdd } = useHouse();
     const [addFormState, setAddFormState] = useState({
         street: '',
         image: '',
@@ -36,39 +41,68 @@ export const SearchForm = () => {
             <p className="search-tittle">Busque propiedades en Ituzaingó</p>
             <p className="search-subtitle">Encuentre su próximo hogar</p>
             <form onSubmit={handleAddSubmit}>
-                <label>
-                    <input
-                        type="text"
-                        name="propertyType"
-                        required
-                        placeholder="Tipo de Inmueble"
-                        onInput={handleInput}
-                    />
-                </label>
-                <label>
-                    <input
-                        type="te"
-                        name="zone"
-                        placeholder="Zona"
-                        onInput={handleInput}
-                    />
-                </label>
-                <label>
-                    <input
-                        type="text"
-                        name="location"
-                        placeholder="Localidad"
-                        onInput={handleInput}
-                    />
-                </label>
-                <label>
-                    <input
-                        type="text"
-                        name="environments"
-                        placeholder="Ambientes"
-                        onInput={handleInput}
-                    />
-                </label>
+                <select
+                    name="propertyType"
+                    className="form-input select"
+                    onInput={handleInput}
+                >
+                    {propertyTypes.map((item, index) => {
+                        return (
+                            <option
+                                disabled={index === 0}
+                                selected={index === 0}
+                            >
+                                {item}
+                            </option>
+                        );
+                    })}
+                </select>
+                <select
+                    name="zone"
+                    className="form-input select"
+                    onInput={handleInput}
+                >
+                    {zones.map((item, index) => {
+                        return (
+                            <option
+                                disabled={index === 0}
+                                selected={index === 0}
+                            >
+                                {item}
+                            </option>
+                        );
+                    })}
+                </select>
+                <select
+                    name="location"
+                    className="form-input select"
+                    onInput={handleInput}
+                >
+                    {locations.map((item, index) => {
+                        return (
+                            <option
+                                disabled={index === 0}
+                                selected={index === 0}
+                            >
+                                {item}
+                            </option>
+                        );
+                    })}
+                </select>
+                <select
+                    name="environments"
+                    className="form-input select"
+                    onInput={handleInput}
+                >
+                    <option disabled selected>
+                        Selecciona la cantidad de ambientes
+                    </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
                 <button className="buttonSearch" type="submit">
                     Buscar
                 </button>

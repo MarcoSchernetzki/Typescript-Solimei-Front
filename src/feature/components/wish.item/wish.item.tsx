@@ -1,8 +1,8 @@
-import { useWishes } from '../../wishes/hook/use.wishes';
+import { useHouse } from '../../wishes/hook/use.wishes';
 import { House } from '../../wishes/model/house';
 
 export function WishItem({ item }: { item: House }) {
-    const { handleSelect } = useWishes();
+    const { handleSelect } = useHouse();
 
     return (
         <>

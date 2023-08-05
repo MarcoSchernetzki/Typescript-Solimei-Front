@@ -4,7 +4,7 @@ import { wishReducer } from '../../feature/wishes/reducer/reducer';
 
 export const appStore = configureStore({
     reducer: {
-        wishes: wishReducer,
+        houses: wishReducer,
         users: userReducer,
     },
 });

@@ -1,10 +1,10 @@
 import { House } from '../model/house';
 import { RepoWish } from './repository';
 
-export class WishRepository implements RepoWish {
+export class HouseRepository implements RepoWish {
     url: string;
     constructor(url = '') {
-        this.url = 'http://localhost:7700/wishes';
+        this.url = 'http://localhost:7700/house';
     }
 
     createError(response: Response) {
@@ -21,7 +21,7 @@ export class WishRepository implements RepoWish {
                 return `${error}`;
             });
     }
-    async getAllWishes(): Promise<{ wishes: House[] }> {
+    async getAllWishes(): Promise<{ houses: House[] }> {
         return fetch(`${this.url}`)
             .then((response) => response.json())
             .catch((error) => {
@@ -41,7 +41,7 @@ export class WishRepository implements RepoWish {
     async create(
         wish: Partial<House>,
         token: string
-    ): Promise<{ wishes: House }> {
+    ): Promise<{ houses: House }> {
         return fetch(this.url, {
             method: 'POST',
             body: JSON.stringify(wish),

@@ -2,23 +2,23 @@ import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { rootState } from '../../../infrastructure/store/store';
-import { WishRepository } from '../service/wish.repository';
+import { HouseRepository } from '../service/wish.repository';
 import * as ac from '../reducer/action.creator';
 import { useNavigate } from 'react-router-dom';
 import { House } from '../model/house';
 
-export const useWishes = () => {
+export const useHouse = () => {
     const navigate = useNavigate();
-    const wishes = useSelector((state: rootState) => state.wishes);
+    const houses = useSelector((state: rootState) => state.houses);
     const dispatcher = useDispatch();
-    const apiWish = useMemo(() => new WishRepository(), []);
+    const apiWish = useMemo(() => new HouseRepository(), []);
 
     const handleLoad = useCallback(
         () =>
             apiWish
                 .getAllWishes()
-                .then((wishes) =>
-                    dispatcher(ac.loadActionCreator(wishes.wishes))
+                .then((houses) =>
+                    dispatcher(ac.loadActionCreator(houses.houses))
                 )
                 .catch((error: Error) =>
                     console.log(error.name, error.message)
@@ -29,8 +29,8 @@ export const useWishes = () => {
     const handleAdd = (newWish: House, token: string) => {
         apiWish
             .create(newWish, token)
-            .then((wish) => {
-                dispatcher(ac.addActionCreator(wish.wishes));
+            .then((house) => {
+                dispatcher(ac.addActionCreator(house.houses));
                 navigate('/home');
             })
             .catch((error: Error) => console.log(error.name, error.message));
@@ -38,13 +38,13 @@ export const useWishes = () => {
 
     const handleUpdate = (
         id: string,
-        updateWish: Partial<House>,
+        updateHouse: Partial<House>,
         token: string
     ) => {
         apiWish
-            .update(id, updateWish, token)
-            .then((wish: House) => {
-                dispatcher(ac.updateActionCreator(wish));
+            .update(id, updateHouse, token)
+            .then((house) => {
+                dispatcher(ac.updateActionCreator(house));
                 navigate('/home');
             })
             .catch((error: Error) => console.log(error.name, error.message));
@@ -60,18 +60,19 @@ export const useWishes = () => {
             .catch((error: Error) => console.log(error.name, error.message));
     };
 
-    const handleSelect = (wish: House) => {
+    const handleSelect = (house: House) => {
+        localStorage.setItem('selectedHouse', JSON.stringify(house));
         apiWish
-            .getWish(wish.id)
+            .getWish(house.id)
             .then(() => {
-                dispatcher(ac.selectActionCreator(wish));
+                dispatcher(ac.selectActionCreator(house));
                 navigate('/details');
             })
             .catch((error: Error) => console.log(error.name, error.message));
     };
 
     return {
-        wishes,
+        houses,
         handleAdd,
         handleUpdate,
         handleDelete,

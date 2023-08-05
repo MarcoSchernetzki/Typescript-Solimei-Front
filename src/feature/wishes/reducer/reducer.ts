@@ -3,45 +3,45 @@ import * as ac from './action.creator';
 import { House } from '../model/house';
 
 const initialState: {
-    wishes: Array<House>;
-    selectedWish: House | null;
+    houses: Array<House>;
+    selectedHouse: House | null;
 } = {
-    wishes: [],
-    selectedWish: null,
+    houses: [],
+    selectedHouse: null,
 };
 
 export const wishReducer = createReducer(initialState, (builder) => {
     builder.addCase(ac.loadActionCreator, (state, action) => ({
         ...state,
-        wishes: action.payload,
+        houses: action.payload,
     }));
 
     builder.addCase(ac.addActionCreator, (state, action) => ({
         ...state,
-        wishes: [...state.wishes, action.payload],
+        houses: [...state.houses, action.payload],
     }));
 
     builder.addCase(ac.updateActionCreator, (state, action) => ({
         ...state,
-        wishes: state.wishes.map((item) =>
+        houses: state.houses.map((item) =>
             item.id === action.payload.id ? action.payload : item
         ),
     }));
 
     builder.addCase(ac.deleteActionCreator, (state, action) => ({
         ...state,
-        wishes: state.wishes.filter((item) => item.id !== action.payload),
+        houses: state.houses.filter((item) => item.id !== action.payload),
     }));
 
     builder.addCase(ac.selectActionCreator, (state, action) => ({
         ...state,
-        selectedWish: action.payload,
+        selectedHouse: action.payload,
     }));
 
     builder.addCase(ac.comeTrueActionCreator, (state, action) => ({
         ...state,
-        selectedWish: {
-            ...(state.selectedWish as House),
+        selectedHouse: {
+            ...(state.selectedHouse as House),
             comeTrue: action.payload,
         },
     }));

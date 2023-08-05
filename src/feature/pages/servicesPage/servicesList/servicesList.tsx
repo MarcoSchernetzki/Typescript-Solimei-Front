@@ -11,7 +11,14 @@ export const ServicesList = () => {
                     <ServiceItem key={item.id} item={item}></ServiceItem>
                 ))}
             </ul>
-            <p className="tittle-items">Casas</p>
+            <div className="tittle-items">
+                <p>Casas</p>
+                <img
+                    src="../../../../assets/arrow-right.svg"
+                    alt="arrow"
+                    width="30px"
+                />
+            </div>
             <p className="service-subtitle">
                 Si necesitas mucho espacio, busca un alojamiento entero que no
                 compartas con otros huéspedes.
