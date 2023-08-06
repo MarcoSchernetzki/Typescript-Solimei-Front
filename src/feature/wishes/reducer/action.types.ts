@@ -1,8 +1,8 @@
 export const actionTypes = {
-    load: 'wishes@load',
-    add: 'wishes@add',
-    update: 'wishes@update',
-    delete: 'wishes@delete',
-    select: 'wishes@select',
-    comeTrue: 'wishes@comeTrue',
+    load: 'houses@load',
+    add: 'houses@add',
+    update: 'houses@update',
+    delete: 'houses@delete',
+    select: 'houses@select',
+    comeTrue: 'houses@comeTrue',
 };

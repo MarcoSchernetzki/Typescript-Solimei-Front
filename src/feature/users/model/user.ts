@@ -13,6 +13,7 @@ export type ProtoUserI = {
     email: string;
     passwd: string;
     role: Role;
+    id?: string;
 };
 
 export type UserToken = {

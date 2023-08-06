@@ -28,9 +28,13 @@ export class HouseRepository implements RepoWish {
                 return `${error}`;
             });
     }
-    async findInspo(): Promise<House[]> {
-        return fetch(`${this.url}/find/:inspiration/:true`, {
+    async findInspo(house: Partial<House>): Promise<House[]> {
+        return fetch(`${this.url}/find`, {
             method: 'GET',
+            body: JSON.stringify(house),
+            headers: {
+                'content-type': 'application/json',
+            },
         })
             .then((response) => response.json())
             .catch((error) => {
@@ -39,12 +43,12 @@ export class HouseRepository implements RepoWish {
     }
 
     async create(
-        wish: Partial<House>,
+        house: Partial<House>,
         token: string
     ): Promise<{ houses: House }> {
         return fetch(this.url, {
             method: 'POST',
-            body: JSON.stringify(wish),
+            body: JSON.stringify(house),
             headers: {
                 Authorization: `Bearer ${token}`,
                 'content-type': 'application/json',

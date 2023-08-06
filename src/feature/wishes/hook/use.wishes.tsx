@@ -70,6 +70,16 @@ export const useHouse = () => {
             })
             .catch((error: Error) => console.log(error.name, error.message));
     };
+    const handleSearch = (house: House) => {
+        localStorage.setItem('selectedHouse', JSON.stringify(house));
+        apiWish
+            .findInspo(house)
+            .then(() => {
+                dispatcher(ac.selectActionCreator(house));
+                navigate('/details');
+            })
+            .catch((error: Error) => console.log(error.name, error.message));
+    };
 
     return {
         houses,

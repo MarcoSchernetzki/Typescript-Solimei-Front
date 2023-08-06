@@ -2,11 +2,14 @@ import { createReducer } from '@reduxjs/toolkit';
 import { UserI } from './../model/user';
 import * as ac from './action.creators';
 
+const userToken = localStorage.getItem('token');
+const userData = JSON.parse(localStorage.getItem('UserData') as string);
+
 const initialState: {
     user: UserI | null;
     token: string | null;
     isLogged: boolean;
-} = { isLogged: false, token: '', user: null };
+} = { isLogged: !!userData, token: '' || userToken, user: null || userData };
 
 export const userReducer = createReducer(initialState, (builder) => {
     builder.addCase(ac.loginActionCreator, (state, action) => ({

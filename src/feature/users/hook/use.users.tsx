@@ -15,9 +15,17 @@ export const useUsers = () => {
     const handleLogin = (user: ProtoUserI) => {
         apiUser.login(user).then((response) => {
             dispatcher(ac.loginActionCreator(response));
+            localStorage.setItem('UserData', JSON.stringify(response.user));
+
             if (response.token) {
                 navigate('/home');
             }
+        });
+    };
+
+    const handleLoginStorage = (user: ProtoUserI) => {
+        apiUser.getUser(user.id as string).then((response) => {
+            dispatcher(ac.getActionCreator(response));
         });
     };
 
@@ -29,5 +37,6 @@ export const useUsers = () => {
         users,
         handleLogin,
         handleLogout,
+        handleLoginStorage,
     };
 };

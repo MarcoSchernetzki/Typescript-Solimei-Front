@@ -2,10 +2,7 @@ import { Link } from 'react-router-dom';
 import './header.css';
 import { useState } from 'react';
 import { SectionMenu } from './sectionMenu/sectionMenu';
-import {
-    menuRoutes,
-    menuRoutesAdmin,
-} from '../../constants/menuRoutes/menuRoutes';
+import { menuRoutes } from '../../constants/menuRoutes/menuRoutes';
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -39,10 +36,7 @@ export const Header = () => {
             </div>
             <div className={`container-menu ${isOpen ? 'open' : 'close'}`}>
                 {isOpen && (
-                    <SectionMenu
-                        sections={menuRoutesAdmin}
-                        setIsOpen={setIsOpen}
-                    />
+                    <SectionMenu sections={menuRoutes} setIsOpen={setIsOpen} />
                 )}
             </div>
         </header>

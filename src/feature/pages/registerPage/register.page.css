@@ -24,6 +24,12 @@ h1 {
     display: flex;
     gap: 7px;
 }
+.container-buttons {
+    display: flex;
+    gap: 7px;
+    margin-top: 40px;
+    justify-content: center;
+}
 .buttonAdd {
     width: 9.375rem;
     height: 2.5rem;
@@ -45,4 +51,9 @@ h1 {
     border-radius: 50px;
     border: solid #000 2px;
     cursor: pointer;
+    transition: all .4s ease-in-out;
+}
+.buttonInspo:hover {
+    color: #fff;
+    background: #000;
 }
