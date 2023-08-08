@@ -28,9 +28,9 @@ export const Header = () => {
                 />
                 <Link to={'./'}>
                     <img
-                        src="../../../../assets/logo-andry-gota.svg"
+                        src="../../../../assets/logo-solimei.png"
                         alt="Andry Morales logo"
-                        width="40px"
+                        width="60px"
                     />
                 </Link>
             </div>

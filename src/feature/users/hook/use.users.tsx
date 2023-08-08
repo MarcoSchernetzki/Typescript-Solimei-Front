@@ -15,10 +15,10 @@ export const useUsers = () => {
     const handleLogin = (user: ProtoUserI) => {
         apiUser.login(user).then((response) => {
             dispatcher(ac.loginActionCreator(response));
-            localStorage.setItem('UserData', JSON.stringify(response.user));
 
             if (response.token) {
-                navigate('/home');
+                localStorage.setItem('UserData', JSON.stringify(response.user));
+                return navigate('/home');
             }
         });
     };

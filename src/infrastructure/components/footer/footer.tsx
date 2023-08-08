@@ -15,7 +15,7 @@ export const Footer = () => {
                 />
                 <div className={styles.footer_container}>
                     <a
-                        href="https://wa.me/34653538373?text=Hola,%20me%20gustaria%20reservar%20una%20cita."
+                        href="https://wa.me/5491150069706?text=Hola,%20me%20gustaría%20recibir%20información%20sobre..."
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -27,7 +27,7 @@ export const Footer = () => {
                         />
                     </a>
                     <a
-                        href="https://www.instagram.com/by_andrymorales/?hl=es"
+                        href="https://www.instagram.com/solimeipropiedades/related_profiles/"
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -39,7 +39,7 @@ export const Footer = () => {
                         />
                     </a>
                     <a
-                        href="https://www.facebook.com/profile.php?id=100087617080427"
+                        href="https://www.facebook.com/solimeipropiedades/"
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -52,7 +52,7 @@ export const Footer = () => {
                         />
                     </a>
                     <a
-                        href="https://www.google.com/maps/place/C.+del+Aviador+Zorita,+5,+28020+Madrid/@40.4477685,-3.6987417,17z/data=!3m1!4b1!4m6!3m5!1s0xd4228f9442292d5:0xbd20c5e3b15b5b27!8m2!3d40.4477685!4d-3.6987417!16s%2Fg%2F11b8v87gl8?entry=ttu"
+                        href="https://www.google.com.ar/maps/place/Gral.+F%C3%A9lix+Olaz%C3%A1bal+951,+B1714FZO+Ituzaing%C3%B3,+Provincia+de+Buenos+Aires,+Argentina/@-34.6573054,-58.6719527,17z/data=!3m1!4b1!4m6!3m5!1s0x95bcbf6087cd4c6b:0xfc026062c5721bbb!8m2!3d-34.6573098!4d-58.6693778!16s%2Fg%2F11pwj707j1?entry=ttu"
                         target="_blank"
                         rel="noreferrer"
                     >
@@ -75,18 +75,22 @@ export const Footer = () => {
             </footer>
             <Modal isOpen={isOpen} handleClose={handleClick}>
                 <div>
-                    <h2 style={{ margin: '0 auto 15px' }}>Ven a visitarnos</h2>
-                    <p>
-                        <strong>lun a vier:</strong> 10:00 a 21:00hs
+                    <h2 style={{ margin: '0 auto 15px' }}>Veni a visitarnos</h2>
+                    <p style={{ margin: '0' }}>
+                        <strong>lun a vier:</strong> 09:30 a 13:00hs, y 16:00 a
+                        19:00hs
                     </p>
-                    <p>
-                        <strong>sabado:</strong> 10:00 a 15:00hs
+                    <p style={{ margin: '0' }}>
+                        <strong>sabado:</strong> 10:00 a 12:30hs
                     </p>
-                    <p>
+                    <p style={{ margin: '0' }}>
                         <strong>domingo:</strong> cerrado
                     </p>
-                    <p style={{ marginTop: '10px' }}>
-                        <strong>Correo:</strong> byandrymorales@gmail.com
+                    <p style={{ margin: '10px auto 0' }}>
+                        <strong>Correo:</strong> solimeipropiedades@yahoo.com.ar
+                    </p>
+                    <p style={{ margin: '0' }}>
+                        <strong>Tel:</strong> 4661-1872
                     </p>
                 </div>
             </Modal>
